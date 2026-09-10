@@ -5,3 +5,5 @@ textArea.addEventListener('input', () => {
     const textLength = textArea.value.trim().length;
     counter.textContent = `Character Count: ${textLength}/50`;
 });
+
+
