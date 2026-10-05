@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switcher</title>
+    <link rel="stylesheet" href="Bts.css">
+</head>
+
+<body>
+    <button id="theme-switcher-button" aria-haspopup="true" aria-expanded="false" aria-controls="theme-dropdown">Switch
+        Theme</button>
+    <ul id="theme-dropdown" role="menu" aria-labelledby="theme-switcher-button" hidden>
+        <li role="menuitem" id="theme-black">🖤 Dark</li>
+        <li role="menuitem" id="theme-ocean">🌊 Ocean Focus</li>
+        <li role="menuitem" id="theme-midnight">🌑 Midnight</li>
+        <li role="menuitem" id="theme-arctic">🧊 Arctic</li>
+    </ul>
+    <div id = "textBox" aria-live="polite"></div>
+    <script src="Bts.js"></script>
+</body>
+
+</html>
