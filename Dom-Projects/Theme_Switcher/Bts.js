@@ -20,7 +20,6 @@ const themeSwitcherBtn = document.querySelector("#theme-switcher-button");
 
 const themeDropDown = document.querySelector("#theme-dropdown");
 const textBox = document.querySelector("#textBox");
-
 const selectedTheme = document.querySelectorAll("li");
 
 themeSwitcherBtn.addEventListener("click", () => {
