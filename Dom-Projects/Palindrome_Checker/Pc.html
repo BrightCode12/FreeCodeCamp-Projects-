@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palindrome Checker</title>
     <link rel="stylesheet" href="Pc.css">
 </head>
+
 <body>
-    <input type="text" id="text-input">
-    <button id="check-btn"></button>
-    <div id="result"></div>
+
+    <main class="checker-card">
+        <div class="top-label">
+            <span class="status-dot"></span>
+            WORD LOGIC / 001
+        </div>
+
+        <h1>
+            Palindrome
+            <span>Checker.</span>
+        </h1>
+
+        <p class="description">
+            Some words read the same both ways.
+            Let's find out if yours is one of them.
+        </p>
+
+        <div class="checker-form">
+            <label for="text-input">ENTER A WORD OR PHRASE</label>
+
+            <div class="input-row">
+                <input type="text" id="text-input" placeholder="e.g. Never odd or even" autocomplete="off">
+
+                <button id="check-btn" type="button">
+                    Check <span aria-hidden="true">↗</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="result" aria-live="polite"></div>
+
+        <div class="card-footer">
+            <span>IGNORE THE NOISE.</span>
+            <span>FIND THE PATTERN. ↘</span>
+        </div>
+    </main>
+
     <script src="Pc.js"></script>
 </body>
+
 </html>
