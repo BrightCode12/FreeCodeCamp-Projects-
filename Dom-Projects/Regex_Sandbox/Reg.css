@@ -25,16 +25,12 @@ body {
     color: var(--text);
 
     background:
-        radial-gradient(
-            circle at 15% 0%,
+        radial-gradient(circle at 15% 0%,
             rgba(103, 232, 249, 0.09),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 90% 80%,
+            transparent 32%),
+        radial-gradient(circle at 90% 80%,
             rgba(196, 167, 255, 0.08),
-            transparent 30%
-        ),
+            transparent 30%),
         var(--background);
 }
 
@@ -48,11 +44,9 @@ h1 {
     font-weight: 800;
     letter-spacing: -1.8px;
 
-    background: linear-gradient(
-        100deg,
-        var(--cyan),
-        var(--purple)
-    );
+    background: linear-gradient(100deg,
+            var(--cyan),
+            var(--purple));
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -83,8 +77,8 @@ main {
     margin-bottom: 28px;
 }
 
-#regex-container > label,
-#test-container > p {
+#regex-container>label,
+#test-container>p {
     display: block;
     margin-bottom: 12px;
 
@@ -239,11 +233,9 @@ main {
     border: 1px solid transparent;
     border-radius: 11px;
 
-    background: linear-gradient(
-        100deg,
-        var(--cyan),
-        #8be9d0
-    );
+    background: linear-gradient(100deg,
+            var(--cyan),
+            #8be9d0);
 
     color: #08121f;
     font-size: 0.95rem;
@@ -317,7 +309,16 @@ main {
     color: white;
 }
 
-/* Responsive layout */
+
+/* Highlighted regex matches inside the test string */
+#test-string mark {
+    background-color: #a3e635;
+    color: #0b1020;
+    border-radius: 4px;
+    padding: 2px 0;
+    box-shadow: 0 0 8px rgba(163, 230, 53, 0.2);
+}
+
 
 @media (max-width: 480px) {
     body {
@@ -351,6 +352,7 @@ main {
 /* Respect reduced-motion preferences */
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
