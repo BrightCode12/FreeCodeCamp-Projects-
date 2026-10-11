@@ -311,7 +311,7 @@ main {
 
 
 /* Highlighted regex matches inside the test string */
-#test-string mark {
+#mark {
     background-color: #a3e635;
     color: #0b1020;
     border-radius: 4px;

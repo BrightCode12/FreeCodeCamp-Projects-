@@ -2,57 +2,35 @@ const regexPattern = document.querySelector("#pattern");
 const stringToTest = document.querySelector("#test-string");
 const testButton = document.querySelector("#test-btn");
 const testResult = document.querySelector("#result");
-const caseInsentiveFlag = document.querySelector("#i");
+const caseInsensitiveFlag = document.querySelector("#i");
 const globalFlag = document.querySelector("#g");
 
-testButton.addEventListener("click", function getFlags() {
-    const pattern = patternInput.value;
-    const text = testString.textContent;
+function getFlags() {
+	let flag = "";
+	if (caseInsensitiveFlag.checked) {
+		flag += "i";
+	}
+	if (globalFlag.checked) {
+		flag += "g";
+	}
+	return flag;
+}
 
-    const flags =
-        (caseInsensitive.checked ? "i" : "") + (globalFlag.checked ? "g" : "");
+testButton.addEventListener("click", () => {
+	const pattern = regexPattern.value;
+	const flags = getFlags();
+	const text = stringToTest.textContent;
+	let matches = [];
 
-    result.replaceChildren();
-
-    try {
-        const regex = new RegExp(pattern, flags);
-
-        const matches = [
-            ...text.matchAll(
-                new RegExp(
-                    regex.source,
-                    regex.flags.includes("g") ? regex.flags : regex.flags + "g",
-                ),
-            ),
-        ];
-
-        if (matches.length === 0) {
-            result.textContent = "No matches found.";
-            return;
-        }
-
-        let lastIndex = 0;
-
-        for (const match of matches) {
-            const matchIndex = match.index;
-            const matchedText = match[0];
-
-            // Add the text before the match.
-            result.append(
-                document.createTextNode(text.slice(lastIndex, matchIndex)),
-            );
-
-            // Create the highlighted match.
-            const mark = document.createElement("mark");
-            mark.textContent = matchedText;
-            result.append(mark);
-
-            lastIndex = matchIndex + matchedText.length;
-        }
-
-        // Add any remaining text.
-        result.append(document.createTextNode(text.slice(lastIndex)));
-    } catch (error) {
-        result.textContent = `Invalid regex: ${error.message}`;
-    }
+	const reg = new RegExp(pattern, flags);
+	const newHtml = text.replace(reg, (match) => {
+		matches.push(match);
+		return `<span class = "mark">${match}</span>`;
+	});
+	if (matches.length > 0) {
+        stringToTest.innerHTML = newHtml;
+        testResult.textContent = matches.join(", ");
+	} else {
+		testResult.textContent = "no match";
+	}
 });
