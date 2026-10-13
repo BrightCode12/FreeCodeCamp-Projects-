@@ -1,94 +1,84 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Form Validation</title>
-        <link rel="stylesheet" href="form.css" />
-    </head>
-    <body>
-        <form action="" id="registration-form" novalidate>
-            <div class="form-icon">👤</div>
-            <h2>Create Your Account</h2>
-            <h3>Practice Form Validation with JavaScript Regex</h3>
-            <label for="username">
-                Username
-                <input
-                    type="text"
-                    id="username"
-                    placeholder="e.g BrightCode12"
-                    aria-labelledby="username-feedback"
-                    autocomplete="username"
-                />
-                <div class="text-instr" id="username-feedback">
-                    4-16 charcters: begin with a letter
-                </div>
-            </label>
-            <label for="email">
-                Email
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="learner@example.com"
-                    aria-labelledby="email-feedback"
-                    autocomplete="email"
-                />
-                <div class="text-instr" id="email-feedback"></div>
-            </label>
 
-            <label for="phone-number">
-                Phone number
-                <input
-                    type="tel"
-                    id="phone-number"
-                    placeholder="08126111282"
-                    autocomplete="tel"
-                    inputmode="numeric"
-                    aria-labelledby="phone-feedback"
-                />
-                <div class="text-instr" id="phone-feedback">
-                    Exercise rule: exactly 11 digit
-                </div>
-            </label>
-            <label for="pin">
-                Four-digit PIN
-                <input
-                    type="text"
-                    id="pin"
-                    inputmode="numeric"
-                    maxlength="4"
-                    placeholder="1234"
-                    aria-labelledby="pin-feedback"
-                />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="form.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <form action="" id="registration-form" class="main-ctn" novalidate>
+        <div class="form-icon">👤</div>
+        <h2>Create Your Account</h2>
+        <h3>Practice Form Validation with JavaScript Regex</h3>
+        <label for="username">
+            Username
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="username" placeholder="e.g BrightCode12" aria-labelledby="username-feedback"
+                    autocomplete="username" />
+            </div>
+            <div class="text-instr" id="username-feedback">
+                4-16 characters: begin with a letter
+            </div>
+        </label>
+        <label for="email">
+            Email
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="email" placeholder="learner@example.com" aria-labelledby="email-feedback"
+                    autocomplete="email" />
+            </div>
+            <div class="text-instr" id="email-feedback"></div>
+        </label>
+
+        <label for="phone-number">
+            Phone number
+            <div class="input-group">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" id="phone-number" placeholder="08126111282" autocomplete="tel" inputmode="numeric"
+                    aria-labelledby="phone-feedback" />
+            </div>
+            <div class="text-instr" id="phone-feedback">
+                Exercise rule: exactly 11 digit
+            </div>
+        </label>
+        <label for="pin">
+            Four-digit PIN
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="text" id="pin" inputmode="numeric" maxlength="4" placeholder="1234"
+                    aria-labelledby="pin-feedback" />
                 <div class="text-instr" id="pin-feedback"></div>
-            </label>
-            <label for="password">
-                Password
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Create a Password"
-                    autocomplete="new-password"
-                    aria-labelledby="password-feedback"
-                />
-                <div class="text-instr" id="password-feedback">
-                    At least 8 charcters, with uppercase, lowercase and a digit
-                </div>
-            </label>
-            <label for="confirm-password">
-                Confirm password
-                <input
-                    type="text"
-                    id="confirm-password"
-                    placeholder="Enter your password again"
-                    autocomplete="new-password"
-                    aria-labelledby="confirm-feedback"
-                />
-                <div class="text-instr" id="confirm-feedback"></div>
-            </label>
-            <button type="submit" id="validate-btn">Validate Form</button>
-            <p id="form-result" aria-live="polite"></p>
-        </form>
-        <script src="form.js"></script>
-    </body>
+            </div>
+        </label>
+        <label for="password">
+            Password
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password" placeholder="Create a Password" autocomplete="new-password"
+                    aria-labelledby="password-feedback" />
+            </div>
+            <div class="text-instr" id="password-feedback">
+                At least 8 characters, with uppercase, lowercase and a digit
+            </div>
+        </label>
+        <label for="confirm-password">
+            Confirm password
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="text" id="confirm-password" placeholder="Enter your password again"
+                    autocomplete="new-password" aria-labelledby="confirm-feedback" />
+            </div>
+            <div class="text-instr" id="confirm-feedback"></div>
+        </label>
+        <button type="submit" id="validate-btn">Validate Form</button>
+        <p id="form-result" aria-live="polite"></p>
+    </form>
+    <script src="form.js"></script>
+</body>
+
 </html>
