@@ -29,6 +29,97 @@ body {
 	line-height: 1.5;
 }
 
+/* Theme toggle button */
+#theme-toggle {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 auto 18px;
+	padding: 10px 14px;
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	background: var(--white);
+	color: var(--text);
+	cursor: pointer;
+	font: inherit;
+}
+
+#theme-toggle:hover {
+	border-color: var(--primary);
+}
+
+/* Smooth theme transition */
+body,
+#main-ctn,
+.input-group,
+input,
+#theme-toggle {
+	transition:
+		background-color 0.25s ease,
+		color 0.25s ease,
+		border-color 0.25s ease;
+}
+
+/* Dark theme */
+body.dark-theme {
+	--background: #050e22;
+	--white: #0e1e33;
+	--text: #e8ecf5;
+	--muted: #546f9e;
+	--border: #4b5563;
+	--primary: #648bff;
+	--primary-hover: #1f3679;
+
+	background: var(--background);
+	color: var(--text);
+}
+
+body.dark-theme #main-ctn {
+	border-color: #374151;
+	box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-theme .input-group {
+	background: #111827;
+}
+
+body.dark-theme .input-group input {
+	color: var(--text);
+	background: transparent;
+}
+
+body.dark-theme .input-group input::placeholder {
+	color: #9ca3af;
+}
+
+body.dark-theme .input-group i {
+	color: #a5b4fc;
+}
+
+body.dark-theme #theme-toggle {
+	background: #1f2937;
+	color: #f3f4f6;
+	border-color: #4b5563;
+}
+
+body.dark-theme #form-result {
+	background: #172033;
+	border-color: #374151;
+	color: #d1d5db;
+}
+
+body.dark-theme #form-result.success {
+	background: #123326;
+	border-color: #226644;
+	color: #86efac;
+}
+
+body.dark-theme #form-result.error {
+	background: #3b1d24;
+	border-color: #7f2938;
+	color: #fda4af;
+}
+
 .main-ctn {
 	width: 100%;
 	max-width: 620px;
@@ -75,44 +166,44 @@ label {
 	font-weight: 600;
 }
 .input-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 7px;
-    padding: 0 12px;
-    border: 1.5px solid var(--border);
-    border-radius: 9px;
-    background: white;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 7px;
+	padding: 0 12px;
+	border: 1.5px solid var(--border);
+	border-radius: 9px;
+	background: white;
 }
 
 .input-group:focus-within {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(56, 109, 244, 0.13);
+	border-color: var(--primary);
+	box-shadow: 0 0 0 3px rgba(56, 109, 244, 0.13);
 }
 
 .input-group i {
-    color: var(--muted);
-    font-size: 16px;
+	color: var(--muted);
+	font-size: 16px;
 }
 
 .input-group input {
-    flex: 1;
-    min-width: 0;
-    width: 100%;
-    margin: 0;
-    padding: 12px 0;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    background: transparent;
+	flex: 1;
+	min-width: 0;
+	width: 100%;
+	margin: 0;
+	padding: 12px 0;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	background: transparent;
 }
 
 .input-group input:focus {
-    border: none;
-    box-shadow: none;
+	border: none;
+	box-shadow: none;
 }
 
- input {
+input {
 	width: 100%;
 	min-height: 48px;
 	margin-top: 7px;
@@ -128,7 +219,7 @@ label {
 		border-color 0.2s ease,
 		box-shadow 0.2s ease,
 		background-color 0.2s ease;
-} 
+}
 
 input::placeholder {
 	color: #8795ad;
@@ -243,8 +334,6 @@ input.invalid:focus {
 	background: #fff5f5;
 	color: var(--error);
 }
-
-
 
 /* ========================= 8. Mobile responsiveness ========================= */
 
