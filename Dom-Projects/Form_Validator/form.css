@@ -1,0 +1,269 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #386df4;
+    --primary-hover: #2456d8;
+    --text: #192b49;
+    --muted: #71819b;
+    --border: #d3ddef;
+    --background: #f1f4fb;
+    --white: #ffffff;
+    --success: #16834a;
+    --error: #dc3545;
+}
+
+body {
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+
+
+#main-ctn {
+    width: 100%;
+    max-width: 620px;
+    padding: 36px;
+    background: var(--white);
+    border: 1px solid #e6ebf5;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(35, 57, 100, 0.10);
+}
+
+/* =========================
+                                                                                                                             3. Header
+                                                                                                                             ========================= */
+
+.form-icon {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 34px;
+}
+
+h2 {
+    margin-bottom: 6px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+}
+
+h3 {
+    margin-bottom: 28px;
+    color: var(--muted);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* =========================
+                                                                                                                                                                                                                4. Form labels and fields
+                                                                                                                                                                                                                ========================= */
+
+label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    margin-top: 7px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    outline: none;
+    background: var(--white);
+    color: var(--text);
+    font: inherit;
+    font-weight: 400;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+input::placeholder {
+    color: #8795ad;
+    opacity: 1;
+}
+
+input:hover {
+    border-color: #aabbe0;
+}
+
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(56, 109, 244, 0.13);
+}
+
+/* =========================
+                                                                                                                                                                                                                                                                                                                                   5. Instructions and feedback
+                                                                                                                                                                                                                                                                                                                                   ========================= */
+
+.text-instr {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.text-instr:empty {
+    display: none;
+}
+
+/* Optional classes for your JavaScript */
+
+.text-instr.success {
+    color: var(--success);
+}
+
+.text-instr.error {
+    color: var(--error);
+}
+
+/* Optional input validation states */
+
+input.valid {
+    border-color: var(--success);
+}
+
+input.invalid {
+    border-color: var(--error);
+}
+
+input.invalid:focus {
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.12);
+}
+
+/* =========================
+                                                                                                                                                                                                                                                                                                                                                                                  6. Submit button
+                                                                                                                                                                                                                                                                                                                                                                                  ========================= */
+
+#validate-btn {
+    display: block;
+    width: 100%;
+    min-height: 50px;
+    margin-top: 8px;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 9px;
+    background: var(--primary);
+    color: var(--white);
+    font: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#validate-btn:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 5px 14px rgba(56, 109, 244, 0.2);
+}
+
+#validate-btn:active {
+    transform: scale(0.99);
+}
+
+#validate-btn:focus-visible {
+    outline: 3px solid rgba(56, 109, 244, 0.35);
+    outline-offset: 3px;
+}
+
+
+#form-result {
+    margin-top: 18px;
+    padding: 14px;
+    border: 1px solid #e0e9fa;
+    border-radius: 10px;
+    background: #f5f8ff;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+#form-result:empty {
+    display: none;
+}
+
+#form-result.success {
+    border-color: #b8e6ca;
+    background: #f0fbf4;
+    color: var(--success);
+}
+
+#form-result.error {
+    border-color: #f1c4c8;
+    background: #fff5f5;
+    color: var(--error);
+}
+
+/* =========================
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    8. Mobile responsiveness
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ========================= */
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+        justify-content: flex-start;
+    }
+
+    #main-ctn {
+        padding: 24px 18px;
+        border-radius: 15px;
+    }
+
+    .form-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 29px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    h3 {
+        margin-bottom: 24px;
+        font-size: 12px;
+    }
+
+    label {
+        margin-bottom: 18px;
+        font-size: 13px;
+    }
+
+    input {
+        min-height: 46px;
+        font-size: 14px;
+    }
+
+    #validate-btn {
+        min-height: 48px;
+    }
+}
