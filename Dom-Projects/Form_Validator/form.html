@@ -22,18 +22,18 @@
             Username
             <div class="input-group">
                 <i class="fa-solid fa-user"></i>
-                <input type="text" id="username" placeholder="e.g BrightCode12" aria-labelledby="username-feedback"
+                <input type="text" id="username" placeholder="e.g BrightCode12" aria-describedby="username-feedback"
                     autocomplete="username" />
             </div>
             <div class="text-instr" id="username-feedback">
-                4-16 characters: begin with a letter
+                8-16 characters: letters, numbers, underscores, or hyphens
             </div>
         </label>
         <label for="email">
             Email
             <div class="input-group">
                 <i class="fa-solid fa-envelope"></i>
-                <input type="email" id="email" placeholder="learner@example.com" aria-labelledby="email-feedback"
+                <input type="email" id="email" placeholder="learner@example.com" aria-describedby="email-feedback"
                     autocomplete="email" />
             </div>
             <div class="text-instr" id="email-feedback"></div>
@@ -44,10 +44,10 @@
             <div class="input-group">
                 <i class="fa-solid fa-phone"></i>
                 <input type="tel" id="phone-number" placeholder="08126111282" autocomplete="tel" inputmode="numeric"
-                    aria-labelledby="phone-feedback" />
+                    aria-describedby="phone-feedback" />
             </div>
             <div class="text-instr" id="phone-feedback">
-                Exercise rule: exactly 11 digit
+                Use an 11-digit number beginning with 0, or a number beginning with +234
             </div>
         </label>
         <label for="pin">
@@ -55,7 +55,7 @@
             <div class="input-group">
                 <i class="fa-solid fa-lock"></i>
                 <input type="text" id="pin" inputmode="numeric" maxlength="4" placeholder="1234"
-                    aria-labelledby="pin-feedback" />
+                    aria-describedby="pin-feedback" />
                 <div class="text-instr" id="pin-feedback"></div>
             </div>
         </label>
@@ -64,7 +64,7 @@
             <div class="input-group">
                 <i class="fa-solid fa-lock"></i>
                 <input type="password" id="password" placeholder="Create a Password" autocomplete="new-password"
-                    aria-labelledby="password-feedback" />
+                    aria-describedby="password-feedback" />
             </div>
             <div class="text-instr" id="password-feedback">
                 At least 8 characters, with uppercase, lowercase and a digit
@@ -74,8 +74,8 @@
             Confirm password
             <div class="input-group">
                 <i class="fa-solid fa-lock"></i>
-                <input type="text" id="confirm-password" placeholder="Enter your password again"
-                    autocomplete="new-password" aria-labelledby="confirm-feedback" />
+                <input type="password" id="confirm-password" placeholder="Enter your password again"
+                    autocomplete="new-password" aria-describedby="confirm-feedback" />
             </div>
             <div class="text-instr" id="confirm-feedback"></div>
         </label>

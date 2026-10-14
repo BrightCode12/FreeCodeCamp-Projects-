@@ -15,36 +15,9 @@ themeToggle.addEventListener("click", () => {
 	);
 });
 
-function isUserNameValid(username) {
-	const regexUsername = /^[a-zA-Z0-9_-]{8,16}$/;
-	return regexUsername.test(username);
-}
-
-function isEmailValid(email) {
-	const regexEmail = /^[a-zA-z0-9.%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-	return regexEmail.test(email);
-}
-
-function isPhoneNumberValid(tel) {
-	const regexPhone = /^(\+?234|0)[789][0-9]{9}$/;
-	return regexPhone.test(tel);
-}
-
-function isPinValid(pin) {
-	const regexPin = /^[0-9]{4,4}$/;
-	return regexPin.test(pin);
-}
-
-function isPasswordValid(password) {
-	const regexPin =
-		/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
-	return regexPin.test(password);
-}
-
-function errorMessage(inputElement, message) {
-	const errorMessage = document.querySelector(`#${inputElement}-feedback`);
-	errorMessage.textContent = message;
-	// errorMessage.classList.add("invalid");
+function Message(inputElement, message) {
+	const Message = document.querySelector(`#${inputElement}-feedback`);
+	Message.textContent = message;
 }
 
 function validation(event) {
@@ -56,54 +29,73 @@ function validation(event) {
 	const password = document.querySelector("#password");
 	const confirmPassword = document.querySelector("#confirm-password");
 
-	errorMessage("username", "");
-	errorMessage("email", "");
-	errorMessage("phone-number", "");
-	errorMessage("pin", "");
-	errorMessage("password", "");
-	errorMessage("confirm-password", "");
+	Message("username", "");
+	Message("email", "");
+	Message("phone-number", "");
+	Message("pin", "");
+	Message("password", "");
+	Message("confirm-password", "");
 
-	let isValid = true;
+	if (password.value !== confirmPassword.value) {
+		Message("confirm-password", "Passwords do not match.");
+	}
+}
+let isValid = true;
 
-	if (!isUserNameValid(username.value)) {
-		errorMessage(
+function isUserNameValid(username) {
+	const regexUsername = /^[a-zA-Z0-9_-]{8,16}$/;
+	
+	if (regexUsername.test(username)) {
+		Message("username", "Username is  valid");
+	} else
+		Message(
 			"username",
 			"Username must be 8-16 characters (letters, numbers, _, -).",
 		);
-		isValid = false;
-	}
+}
 
-	if (!isEmailValid(email.value)) {
-		errorMessage("email", "Please enter a valid email address.");
+function isEmailValid(email) {
+	const regexEmail = /^[a-zA-z0-9.%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+	if (regexEmail.test(email)) {
+		Message("email", "Email is valid");
 		isValid = false;
+	} else {
+		Message("email", "Please enter a valid email address.");
 	}
+}
 
-	if (!isPhoneNumberValid(phoneNumber.value)) {
-		errorMessage(
+function isPhoneNumberValid(tel) {
+	const regexPhone = /^(\+?234|0)[789][0-9]{9}$/;
+	if (regexPhone.test(tel)) {
+		Message("phone-number", "Phone number is valid");
+	} else {
+		Message(
 			"phone-number",
 			"Please enter a valid phone number (e.g., 080... or +234...).",
 		);
-		isValid = false;
 	}
+}
 
-	if (!isPinValid(pin.value)) {
-		errorMessage("pin", "PIN must be exactly 4 digits.");
-		isValid = false;
+function isPinValid(pin) {
+	const regexPin = /^\d{4}$/;
+	if (regexPin.test(pin)) {
+		Message("pin", "Pin is valid");
+	} else {
+		Message("pin", "PIN must be exactly 4 digits.");
 	}
+}
 
-	if (!isPasswordValid(password.value)) {
-		errorMessage(
+function isPasswordValid(password) {
+	const regexPin =
+		/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+	if (regexPin.test(password)) {
+		Message("password", "Password is valid");
+	} else {
+		Message(
 			"password",
 			"Password must be at least 8 characters and include uppercase, lowercase, number, and special character.",
 		);
-		isValid = false;
 	}
-
-	if (password.value !== confirmPassword.value) {
-		errorMessage("confirm-password", "Passwords do not match.");
-		isValid = false;
-	}
-
-	return isValid;
 }
+
 validateBtn.addEventListener("click", validation);

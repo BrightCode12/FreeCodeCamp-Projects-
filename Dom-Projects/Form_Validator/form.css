@@ -181,6 +181,18 @@ label {
 	box-shadow: 0 0 0 3px rgba(56, 109, 244, 0.13);
 }
 
+.input-group.valid {
+	border-color: var(--success);
+}
+
+.input-group.invalid {
+	border-color: var(--error);
+}
+
+.input-group.invalid:focus-within {
+	box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.12);
+}
+
 .input-group i {
 	color: var(--muted);
 	font-size: 16px;
