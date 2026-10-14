@@ -210,6 +210,16 @@ label {
 	background: transparent;
 }
 
+.input-group input.valid,
+body.dark-theme .input-group input.valid {
+	color: var(--success);
+}
+
+.input-group input.invalid,
+body.dark-theme .input-group input.invalid {
+	color: var(--error);
+}
+
 .input-group input:focus {
 	border: none;
 	box-shadow: none;
