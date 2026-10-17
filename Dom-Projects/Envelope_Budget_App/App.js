@@ -40,13 +40,35 @@ function calculateBudget(e) {
 	);
 	const entertainmentInputs = document.querySelectorAll(
 		"#entertainment input[type = 'number']",
-    );
-    const rent = getTotalFromInputs([rentInput]);
-}
+	);
+	const rent = getTotalFromInputs([rentInput]);
+	const food = getTotalFromInputs(foodInputs);
+	const utilities = getTotalFromInputs(utilitiesInputs);
+	const entertainment = getTotalFromInputs(entertainmentInputs);
+	const income = getTotalFromInputs([incomeInput]);
 
-const food = getTotalFromInputs(foodInputs);
-const utilities = getTotalFromInputs(utilitiesInputs);
-const entertainment = getTotalFromInputs(entertainmentInputs);
+	if (isError) {
+		return;
+	}
+
+	const expenses = rent + food + utilities + entertainment;
+	const netRemaining = income - expenses;
+	let statusText = "";
+	let statusClass = "";
+	if (netRemaining < 0) {
+		statusText = `Over Budget by $${Math.abs(netRemaining)}`;
+		statusClass = "deficit";
+	} else {
+		statusText = `$${netRemaining} Remaining`;
+		statusClass = "surplus";
+	}
+	output.innerHTML = `<span class ="${statusClass}">${statusText}</span>
+	<hr/>
+	<p>$${income} Total Income</p>
+	<p>$${expenses} Total Expenses</p>
+	`;
+	output.classList.remove("hide");
+}
 
 function getTotalFromInputs(list) {
 	let total = 0;
@@ -61,7 +83,21 @@ function getTotalFromInputs(list) {
 		total += Number(currVal);
 		return total;
 	}
-} 
+}
 
+function clearForm() {
+	const inputContainers = Array.from(
+		document.querySelectorAll(".input-container"),
+	);
+	for (const container of inputContainers) {
+		container.innerHTML = "";
+	}
+	incomeInput.value = "";
+	rentInput.value = "";
+	output.innerText = "";
+	output.classList.add("hide");
+}
 
 addEntryButton.addEventListener("click", addEntry);
+budgetForm.addEventListener("submit", calculateBudget);
+clearButton.addEventListener("click", clearForm);
