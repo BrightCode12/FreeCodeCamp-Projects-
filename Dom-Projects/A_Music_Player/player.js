@@ -94,6 +94,51 @@ const playSong = (id) => {
 	userData.currentSong = song;
 	audio.play();
 };
+
+const pauseSong = () => {
+	userData.songCurrentTime = audio.currentTime;
+	playButton.classList.remove("playing");
+	audio.pause();
+};
+
+const getCurrentSongIndex = () => {
+	const indexSong = userData.songs;
+	return indexSong.indexOf(userData.currentSong);
+};
+
+const getNextSong = () => {
+	return userData.songs[getCurrentSongIndex() + 1];
+};
+
+const getPreviousSong = () => {
+	return userData.songs[getCurrentSongIndex() - 1];
+};
+
+const playPreviousSong = () => {
+	const prevSong = getPreviousSong();
+	if (prevSong) {
+		playSong(prevSong.id);
+    } else {
+        playSong(userData.songs[0].id);
+	}
+};
+
+const playNextSong = () => {
+	if (userData.currentSong === null) {
+		playSong(userData.songs[0].id);
+		return;
+	} else {
+		const nextSong = getNextSong();
+		if (nextSong) {
+			playSong(nextSong.id);
+		} else {
+			userData.currentSong = null;
+			userData.songCurrentTime = 0;
+			pauseSong();
+		}
+	}
+};
+
 playButton.addEventListener("click", () => {
 	if (userData.currentSong === null) {
 		playSong(userData.songs[0].id);
@@ -111,3 +156,7 @@ song.forEach((songElement) => {
 		console.log(id);
 	});
 });
+
+pauseButton.addEventListener("click", pauseSong);
+nextButton.addEventListener("click", playNextSong);
+previousButton.addEventListener("click", playPreviousSong);
