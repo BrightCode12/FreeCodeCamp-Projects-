@@ -10,7 +10,7 @@ I'm using **freeCodeCamp's JavaScript curriculum** to build a strong foundation 
 
 ## 📊 Current Progress
 
-**freeCodeCamp JavaScript curriculum: 812 / 1,404 steps complete — approximately 57.8%.**
+**freeCodeCamp JavaScript curriculum: 812 / 1,404 steps complete — approximately 58.0%.**
 
 This is a snapshot of my progress, not the finish line. I'm continuing through the remaining lessons and certification projects while strengthening my ability to write, debug, and explain JavaScript code.
 
@@ -64,7 +64,7 @@ These sections have helped me practise working with values, functions, arrays, c
 My project roadmap gives me a practical way to apply what I learn instead of only completing lessons.
 
 - [x] **Markdown to HTML Converter** — completed.
-- [ ] **Drum Machine** — not started.
+- [x] **Drum Machine** — not started.
 - [ ] **Voting System** — not started.
 - [ ] **Bank Account Management Program** — not started.
 - [ ] **Weather App** — not started.
