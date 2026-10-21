@@ -72,7 +72,7 @@ These sections have helped me practise working with values, functions, arrays, c
 My project roadmap gives me a practical way to apply what I learn instead of only completing lessons.
 
 - [x] **Markdown to HTML Converter** — completed.
-- [ ] **Drum Machine** — not started.
+- [x] **Drum Machine** - completed
 - [ ] **Voting System** — not started.
 - [ ] **Bank Account Management Program** — not started.
 - [ ] **Weather App** — not started.
