@@ -17,3 +17,13 @@ allBtn.forEach(button => {
         playAndDisplayAudio(button);
     });
 });
+
+document.addEventListener("keydown", (e) => {
+    const keyPressed = e.key.toUpperCase();
+    const targetBtn = Array.from(document.querySelectorAll("button")).find(
+        button => button.querySelector("audio")?.id === keyPressed
+    );
+    if (targetBtn) {
+        playAndDisplayAudio(targetBtn)
+    }
+});
