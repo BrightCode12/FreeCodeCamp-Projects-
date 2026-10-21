@@ -1,0 +1,168 @@
+/* ===== Global Reset ===== */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--background: #0b0e17;
+	--machine: #151a29;
+	--pad: #222a3d;
+	--accent: #00e5ff;
+	--text: #f1f5f9;
+	--muted: #8b9bb4;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	background:
+		radial-gradient(circle at top, #19243c 0%, transparent 45%),
+		var(--background);
+	color: var(--text);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== Drum Machine Container ===== */
+#drum-machine {
+	width: 100%;
+	max-width: 520px;
+	padding: 30px;
+	background: linear-gradient(145deg, #1b2234, #111624);
+	border: 1px solid #303b53;
+	border-radius: 24px;
+	box-shadow:
+		0 25px 60px rgba(0, 0, 0, 0.45),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ===== Display Screen ===== */
+#display {
+	min-height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 25px;
+	padding: 15px;
+	background: #080d16;
+	border: 1px solid #26364c;
+	border-radius: 12px;
+	color: var(--accent);
+	font-size: 1.2rem;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-align: center;
+	text-transform: uppercase;
+	box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== Drum Pad Grid ===== */
+#pad-bank {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 15px;
+}
+
+/* ===== Individual Drum Pads ===== */
+.drum-pad {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 0;
+	aspect-ratio: 1 / 1;
+	border: 1px solid #394762;
+	border-radius: 15px;
+	background: linear-gradient(145deg, #2a344b, #1b2335);
+	color: var(--text);
+	font-size: 1.6rem;
+	font-weight: 800;
+	cursor: pointer;
+	user-select: none;
+	box-shadow:
+		0 6px 0 #101625,
+		0 10px 18px rgba(0, 0, 0, 0.2);
+	transition:
+		transform 0.12s ease,
+		background 0.2s ease,
+		border-color 0.2s ease,
+		box-shadow 0.12s ease,
+		color 0.2s ease;
+}
+
+/* Hide audio elements visually */
+.clip {
+	display: none;
+}
+
+/* ===== Hover Effect ===== */
+.drum-pad:hover {
+	background: linear-gradient(145deg, #34445f, #222e45);
+	border-color: var(--accent);
+	color: var(--accent);
+	box-shadow:
+		0 6px 0 #101625,
+		0 0 15px rgba(0, 229, 255, 0.12);
+}
+
+/* ===== Click / Active Effect ===== */
+.drum-pad:active {
+	transform: translateY(5px);
+	box-shadow:
+		0 1px 0 #101625,
+		0 0 22px rgba(0, 229, 255, 0.3);
+	background: #123947;
+	border-color: var(--accent);
+	color: var(--accent);
+}
+
+/* Keyboard focus for accessibility */
+.drum-pad:focus-visible {
+	outline: 3px solid var(--accent);
+	outline-offset: 4px;
+}
+
+/* ===== Tablet and Mobile ===== */
+@media (max-width: 480px) {
+	body {
+		padding: 15px;
+	}
+
+	#drum-machine {
+		padding: 20px;
+		border-radius: 18px;
+	}
+
+	#pad-bank {
+		gap: 11px;
+	}
+
+	.drum-pad {
+		border-radius: 12px;
+		font-size: 1.35rem;
+	}
+
+	#display {
+		min-height: 60px;
+		font-size: 1rem;
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 320px) {
+	#drum-machine {
+		padding: 14px;
+	}
+
+	#pad-bank {
+		gap: 8px;
+	}
+
+	.drum-pad {
+		font-size: 1.1rem;
+	}
+}
