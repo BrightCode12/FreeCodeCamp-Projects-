@@ -6,11 +6,19 @@ I'm using **freeCodeCamp's JavaScript curriculum** to build a strong foundation 
 
 ![JavaScript](https://img.shields.io/badge/Focus-JavaScript-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)
 ![freeCodeCamp](https://img.shields.io/badge/Learning-freeCodeCamp-0a0a23?style=for-the-badge&logo=freecodecamp&logoColor=white)
-![Progress](https://img.shields.io/badge/Curriculum_Progress-57.8%25-blue?style=for-the-badge)
+![Overall Progress](https://img.shields.io/badge/Overall_Progress-57.8%25-blue?style=for-the-badge)
 
 ## 📊 Current Progress
 
-**freeCodeCamp JavaScript curriculum: 812 / 1,404 steps complete — approximately 58.0%.**
+<!-- OVERALL_PROGRESS_START -->
+**Overall freeCodeCamp JavaScript progress:** 812 / 1,404 steps completed (57.8%).
+<!-- OVERALL_PROGRESS_END -->
+
+<!-- PROJECT_PROGRESS_START -->
+**Certification project progress:** 1 / 6 completed (16.7%).
+<!-- PROJECT_PROGRESS_END -->
+
+GitHub Actions updates both progress figures in this README whenever I push a change. The overall percentage combines the lesson-step counts in the topic tables with the completed certification-project checkboxes. When I complete more lessons, I update that topic’s `completed / total` count from freeCodeCamp; the percentage is then recalculated automatically. Project progress is counted from the checkboxes below.
 
 This is a snapshot of my progress, not the finish line. I'm continuing through the remaining lessons and certification projects while strengthening my ability to write, debug, and explain JavaScript code.
 
@@ -64,7 +72,7 @@ These sections have helped me practise working with values, functions, arrays, c
 My project roadmap gives me a practical way to apply what I learn instead of only completing lessons.
 
 - [x] **Markdown to HTML Converter** — completed.
-- [x] **Drum Machine** — not started.
+- [ ] **Drum Machine** — not started.
 - [ ] **Voting System** — not started.
 - [ ] **Bank Account Management Program** — not started.
 - [ ] **Weather App** — not started.
@@ -82,7 +90,7 @@ Alongside the curriculum, I use smaller projects to practise writing code and co
 A project for practising how to process Markdown input and convert supported syntax into HTML, including headings, emphasis, and images.
 
 ### Pomodoro Timer
-A responsive focus timer with focus and break sessions, configurable settings, and visual themes. This project helps me practice event handling, timer logic, input validation, and storing settings in the browser.
+A responsive focus timer with focus and break sessions, configurable settings, and visual themes. This project helps me practise event handling, timer logic, input validation, and storing settings in the browser.
 
 ### Palindrome Checker
 A practice project for checking whether text reads the same forwards and backwards. It gives me experience with string handling, input cleanup, and conditional logic.
@@ -114,7 +122,7 @@ Practice work focused on regular expressions, pattern testing, flags, highlighti
 
 I plan to keep this README updated as I reach new milestones.
 
-- **Current milestone:** 812 / 1,404 curriculum steps complete.
+- **Current milestone:** The overall percentage is calculated from the topic tables and certification-project checklist.
 - **Completed certification project:** Markdown to HTML Converter.
 - **Next focus:** finish the incomplete foundational modules and continue the certification-project roadmap.
 
