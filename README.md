@@ -6,12 +6,12 @@ I'm using **freeCodeCamp's JavaScript curriculum** to build a strong foundation 
 
 ![JavaScript](https://img.shields.io/badge/Focus-JavaScript-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)
 ![freeCodeCamp](https://img.shields.io/badge/Learning-freeCodeCamp-0a0a23?style=for-the-badge&logo=freecodecamp&logoColor=white)
-![Overall Progress](https://img.shields.io/badge/Overall_Progress-57.9%25-blue?style=for-the-badge)
+![Overall Progress](https://img.shields.io/badge/Overall_Progress-60.3%25-blue?style=for-the-badge)
 
 ## 📊 Current Progress
 
 <!-- OVERALL_PROGRESS_START -->
-**Overall freeCodeCamp JavaScript progress:** 813 / 1,404 steps completed (57.9%).
+**Overall freeCodeCamp JavaScript progress:** 847 / 1,404 steps completed (60.3%).
 <!-- OVERALL_PROGRESS_END -->
 
 <!-- PROJECT_PROGRESS_START -->
