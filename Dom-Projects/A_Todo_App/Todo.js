@@ -15,7 +15,7 @@ let currentTask = {};
 
 const removeSpecialChars = (value) => {
 	const SpecialRegex = /[^a-zA-Z0-9\-\s]/g;
-	value.replace(SpecialRegex, "");
+	return value.trim().replace(SpecialRegex, "");
 };
 
 const addOrUpdateTask = () => {

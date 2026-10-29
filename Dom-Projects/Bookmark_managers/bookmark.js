@@ -44,38 +44,39 @@ END FUNCTION
 */
 
 const getBookmarks = () => {
-	const storeData = localStorage.setItem("bookmarks");
+    const storeData = localStorage.setItem("bookmarks");
 
-	if (storeData === null) {
-		return [];
-	}
-	let parseData;
+    if (storeData === null) {
+        return [];
+    }
+    let parseData;
 
-	try {
-		parseData = JSON.parse(storeData);
-	} catch (error) {
-		return [];
-	}
-	if (!Array.isArray(parseData)) {
-		return [];
-	}
-	for (const bookmark of parseData) {
-		if (!isValidBookmark(bookmark)) {
-			return [];
-		}
-	}
-	return parseData;
+    try {
+        parseData = JSON.parse(storeData);
+    } catch (error) {
+        return [];
+    }
+    if (!Array.isArray(parseData)) {
+        return [];
+    }
+    for (const bookmark of parseData) {
+        if (!isValidBookmark(bookmark)) {
+            return [];
+        }
+    }
+    return parseData;
 };
 
 const isValidBookmark = (bookmark) => {
-	return (
-		bookmark !== null &&
-		typeof bookmark === "object" &&
-		typeof bookmark.url === "string"
-	);
+    return (
+        bookmark !== null &&
+        typeof bookmark === "object" &&
+        typeof bookmark.url === "string"
+    );
 };
 
-/*FUNCTION saveBookmarks(bookmarks)
+/*
+FUNCTION saveBookmarks(bookmarks)
 
 CONVERT bookmarks array to JSON
 
@@ -88,4 +89,35 @@ END FUNCTION
 const saveBookmarks = (bookmarks) => {
     const storedJson = JSON.stringify(bookmarks);
     localStorage.setItem("bookmarks", storedJson);
+};
+
+/*
+FUNCTION displayOrCloseForm()
+
+    TOGGLE the "hidden" class on #main-section
+
+	    TOGGLE the "hidden" class on #form-section
+
+		END FUNCTION
+*/
+
+const displayOrCloseForm = () => {
+    mainSection.classList.toggle("hidden");
+    formSection.classList.toggle("hidden");
+};
+
+/*
+FUNCTION displayOrHideCategory()
+
+    TOGGLE the "hidden" class on #main-section
+    
+        TOGGLE the "hidden" class on #bookmark-list-section
+        
+        END FUNCTION
+        */
+
+const displayOrHideCategory = () => {
+  mainSection.classList.toggle("hidden");
+  bookMarkListSection.classList.toggle("hidden");
 }
+
