@@ -13,15 +13,10 @@ const descriptionInput = document.getElementById("description-input");
 const taskData = [];
 let currentTask = {};
 
-const reset = () => {
-	titleInput.value = "";
-	dateInput.value = "";
-	descriptionInput.value = "";
-	taskForm.classList.toggle("hidden");
-	currentTask = {};
-};
+
 
 const addOrUpdateTask = () => {
+	
 	const dataArrIndex = taskData.findIndex(
 		(item) => item.id === currentTask.id,
 	);
@@ -33,43 +28,68 @@ const addOrUpdateTask = () => {
 	};
 	if (dataArrIndex === -1) {
 		taskData.unshift(taskObj);
+	} else {
+		taskData[dataArrIndex] = taskObj;
 	}
+
 	updateTaskContainer();
 	reset();
 };
 
 const updateTaskContainer = () => {
+	tasksContainer.innerHTML = "";
 	taskData.forEach(({ id, title, date, description }) => {
-		tasksContainer.innerHTML = {};
 		tasksContainer.innerHTML += `
         <div class = "task" id = "${id}">
         <p><strong>Title:</strong>${title}</p>
         <p><strong>Date:</strong>${date}</p>
         <p><strong>Description:</strong>${description}</p>
-        <button type= "button" class= "btn" onClick ="editTask(this)">Edit</button>
-        <button type= "button" class= "btn" onClick ="deleteTask(this)">Delete</button>
+        <button onClick ="editTask(this)" type= "button" class= "btn" >Edit</button>
+        <button onClick ="deleteTask(this)" type= "button" class= "btn">Delete</button>
         </div>`;
 	});
 };
 
 const deleteTask = (buttonEl) => {
 	const dataArrIndex = taskData.findIndex((item) => {
-	 item.id === buttonEl.parentElement.id
+		return item.id === buttonEl.parentElement.id;
 	});
 	buttonEl.parentElement.remove();
-	taskData.splice(dataArrIndex,1);
+	taskData.splice(dataArrIndex, 1);
 };
 
-const editTask = (buttonEl) => {}
+const editTask = (buttonEl) => {
+	const dataArrIndex = taskData.findIndex((item) => {
+		return item.id === buttonEl.parentElement.id;
+	});
+
+	currentTask = taskData[dataArrIndex];
+
+	titleInput.value = currentTask.title;
+	dateInput.value = currentTask.date;
+	descriptionInput.value = currentTask.description;
+
+	addOrUpdateTaskBtn.innerHTML = "Update Task";
+
+	taskForm.classList.toggle("hidden");
+};
+
+const reset = () => {
+	titleInput.value = "";
+	dateInput.value = "";
+	descriptionInput.value = "";
+	taskForm.classList.toggle("hidden");
+	currentTask = {};
+};
+
 openTaskFormBtn.addEventListener("click", () => {
 	taskForm.classList.toggle("hidden");
 });
 closeTaskFormBtn.addEventListener("click", () => {
-	if (
-		titleInput.value &&
-		dateInput.value &&
-		descriptionInput.value.trim() !== ""
-	) {
+	const formInputsContainValues = titleInput.value || dateInput.value || descriptionInput.value.trim() !== "";
+	const formInputValuesUpdated = titleInput.value !== currentTask.title || dateInput.value !== currentTask.date || descriptionInput.value !== currentTask.description;
+	
+	if (formInputsContainValues && formInputValuesUpdated) {
 		confirmClosedDialog.showModal();
 	} else {
 		reset();
@@ -89,3 +109,10 @@ taskForm.addEventListener("submit", (e) => {
 	e.preventDefault();
 	addOrUpdateTask();
 });
+
+const myTaskArr = [
+	{ task: "Walk the Dog", date: "22-04-2022" },
+	{ task: "Read some books", date: "02-11-2023" },
+	{ task: "Watch football", date: "10-08-2021" },
+];
+localStorage.setItem("data", myTaskArr);
