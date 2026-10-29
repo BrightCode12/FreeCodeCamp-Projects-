@@ -18,17 +18,61 @@ const reset = () => {
 	dateInput.value = "";
 	descriptionInput.value = "";
 	taskForm.classList.toggle("hidden");
-    currentTask = {};
+	currentTask = {};
 };
 
+const addOrUpdateTask = () => {
+	const dataArrIndex = taskData.findIndex(
+		(item) => item.id === currentTask.id,
+	);
+	const taskObj = {
+		id: `${titleInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
+		title: titleInput.value,
+		date: dateInput.value,
+		description: descriptionInput.value,
+	};
+	if (dataArrIndex === -1) {
+		taskData.unshift(taskObj);
+	}
+	updateTaskContainer();
+	reset();
+};
+
+const updateTaskContainer = () => {
+	taskData.forEach(({ id, title, date, description }) => {
+		tasksContainer.innerHTML = {};
+		tasksContainer.innerHTML += `
+        <div class = "task" id = "${id}">
+        <p><strong>Title:</strong>${title}</p>
+        <p><strong>Date:</strong>${date}</p>
+        <p><strong>Description:</strong>${description}</p>
+        <button type= "button" class= "btn" onClick ="editTask(this)">Edit</button>
+        <button type= "button" class= "btn" onClick ="deleteTask(this)">Delete</button>
+        </div>`;
+	});
+};
+
+const deleteTask = (buttonEl) => {
+	const dataArrIndex = taskData.findIndex((item) => {
+	 item.id === buttonEl.parentElement.id
+	});
+	buttonEl.parentElement.remove();
+	taskData.splice(dataArrIndex,1);
+};
+
+const editTask = (buttonEl) => {}
 openTaskFormBtn.addEventListener("click", () => {
 	taskForm.classList.toggle("hidden");
 });
 closeTaskFormBtn.addEventListener("click", () => {
-	if (titleInput.value && dateInput.value && descriptionInput.value.trim() !== "") {
+	if (
+		titleInput.value &&
+		dateInput.value &&
+		descriptionInput.value.trim() !== ""
+	) {
 		confirmClosedDialog.showModal();
 	} else {
-	reset();	
+		reset();
 	}
 });
 
@@ -43,29 +87,5 @@ discardBtn.addEventListener("click", () => {
 
 taskForm.addEventListener("submit", (e) => {
 	e.preventDefault();
-	const dataArrIndex = taskData.findIndex(
-		(item) => item.id === currentTask.id,
-	);
-	const taskObj = {
-		id: `${titleInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
-		title: titleInput.value,
-		date: dateInput.value,
-		description: descriptionInput.value,
-	};
-	if (dataArrIndex === -1) {
-		taskData.unshift(taskObj);
-	}
-	taskData.forEach(({id, title, date, description}) => {
-		tasksContainer.innerHTML += `
-        <div class = "task" id = "${id}">
-        <p><strong>Title:</strong>${title}</p>
-        <p><strong>Date:</strong>${date}</p>
-        <p><strong>Description:</strong>${description}</p>
-        <button type= "button" class= "btn">Edit</button>
-        <button type= "button" class= "btn">Delete</button>
-        </div>`;
-	});
-	reset();
+	addOrUpdateTask();
 });
-
-
