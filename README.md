@@ -56,7 +56,7 @@ These sections have helped me practise working with values, functions, arrays, c
 | Topic | Progress |
 |---|---:|
 | Maps and Sets | 36 / 36 |
-| Local Storage and CRUD Operations | 0 / 78 |
+| Local Storage and CRUD Operations | 75 / 78 |
 | Classes | 0 / 68 |
 | Recursion | 0 / 119 |
 | Data Structures | 0 / 31 |
