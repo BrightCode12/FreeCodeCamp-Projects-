@@ -4,7 +4,7 @@ const viewCategoryBtn = document.getElementById("view-category-button");
 const addBookMarkBtn = document.getElementById("add-bookmark-button");
 const formSection = document.getElementById("form-section");
 const categoryName = document.querySelector(".category-name");
-const name = document.getElementById("name");
+const siteName = document.getElementById("name");
 const url = document.getElementById("url");
 const closeFormBtn = document.getElementById("close-form-button");
 const addBookMarkBtnForm = document.getElementById("add-bookmark-button-form");
@@ -117,7 +117,62 @@ FUNCTION displayOrHideCategory()
         */
 
 const displayOrHideCategory = () => {
-  mainSection.classList.toggle("hidden");
-  bookMarkListSection.classList.toggle("hidden");
-}
+    mainSection.classList.toggle("hidden");
+    bookMarkListSection.classList.toggle("hidden");
+};
+
+/*
+WHEN #add-bookmark-button IS CLICKED
+
+    GET the selected category from #category-dropdown
+
+        DISPLAY the selected category in .category-name
+
+            CALL displayOrCloseForm()
+
+            END EVENT
+*/
+
+addBookMarkBtn.addEventListener("click", () => {
+    const selectedCategory = categoryDropDown.value;
+    const bookmark = getBookmarks();
+    const bookmarkName = siteName.value;
+    const siteUrl = url.value;
+
+    const newBookmark = {
+        name: bookmarkName,
+        category: selectedCategory,
+        url: siteUrl
+    }
+
+    if (selectedCategory) {
+        categoryName.textContent = selectedDropDown;
+    }else {
+        return 
+    }
+    
+    bookmark.push(newBookmark);
+    saveBookmarks(bookmark);
+    displayOrCloseForm();
+});
+
+/*
+WHEN #add-bookmark-button-form IS CLICKED
+
+SET bookmarks TO getBookmarks()
+GET bookmarkName from #name input
+GET bookmarkCategory from #category-dropdown
+ GET bookmarkURL from #url input
+
+CREATE newBookmark with:
+name = bookmarkName
+category = bookmarkCategory
+url = bookmarkURL
+APPEND newBookmark to bookmarks
+CALL saveBookmarks(bookmarks)
+CLEAR #name input
+CLEAR #url input
+CALL displayOrCloseForm()
+END EVENT
+*/
 
