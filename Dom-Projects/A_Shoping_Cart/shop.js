@@ -12,7 +12,6 @@ const cartTotal = document.getElementById("total");
 
 const showHideCartSpan = document.getElementById("show-hide-cart");
 let isCartShowing = false;
-const products = [];
 
 class Dessert {
 	constructor(id, name, price, category) {
@@ -20,21 +19,68 @@ class Dessert {
 		this.name = name;
 		this.price = price;
 		this.category = category;
-    }
-    
+	}
 }
 
-products[
-    new Dessert(1, "Vanilla Cupcakes (6 Pack)", 12.99, "Cupcake"),
-    new Dessert(2, "French Macaron", 3.99, "Macaron"),
-    new Dessert(3, "Pumpkin Cupcake", 3.99, "Cupcake"),
-    new Dessert(4, "Chocolate Cupcake", 5.99, "Cupcake"),
-    new Dessert(5, "Chocolate Pretzels (4 Pack)", 10.99, "Pretzel"),
-    new Dessert(6, "Strawberry Ice Cream", 2.99, "Ice Cream"),
-    new Dessert(7, "Chocolate Macarons (4 Pack)", 9.99, "Macaron"),
-    new Dessert(8, "Strawberry Pretzel", 4.99, "Pretzel"),
-    new Dessert(9, "Butter Pecan Ice Cream", 2.99, "Ice Cream"),
-    new Dessert(10, "Rocky Road Ice Cream", 2.99, "Ice Cream"),
-    new Dessert(11, "Vanilla Macarons (5 Pack)", 11.99, "Macaron"),
-    new Dessert(12, "Lemon Cupcakes (4 Pack)", 12.99, "Cupcake")
+const products = [
+	new Dessert(1, "Vanilla Cupcakes (6 Pack)", 12.99, "Cupcake"),
+	new Dessert(2, "French Macaron", 3.99, "Macaron"),
+	new Dessert(3, "Pumpkin Cupcake", 3.99, "Cupcake"),
+	new Dessert(4, "Chocolate Cupcake", 5.99, "Cupcake"),
+	new Dessert(5, "Chocolate Pretzels (4 Pack)", 10.99, "Pretzel"),
+	new Dessert(6, "Strawberry Ice Cream", 2.99, "Ice Cream"),
+	new Dessert(7, "Chocolate Macarons (4 Pack)", 9.99, "Macaron"),
+	new Dessert(8, "Strawberry Pretzel", 4.99, "Pretzel"),
+	new Dessert(9, "Butter Pecan Ice Cream", 2.99, "Ice Cream"),
+	new Dessert(10, "Rocky Road Ice Cream", 2.99, "Ice Cream"),
+	new Dessert(11, "Vanilla Macarons (5 Pack)", 11.99, "Macaron"),
+	new Dessert(12, "Lemon Cupcakes (4 Pack)", 12.99, "Cupcake"),
 ];
+
+dessertCards.innerHTML = products
+	.map(
+		({ name, id, price, category }) => /*html*/ `
+	<div class= "dessert-card">
+        <h2>${name}</h2>
+          <p class = "dessert-price">$${price}</p>
+		  <p class ="product-category">Category: ${category}</p>
+		  <button id = "${id}" class="btn add-to-cart-btn">Add to cart</button>
+    </div>
+        `,
+	)
+	.join("");
+
+class ShoppingCart {
+	constructor() {
+		this.items = [];
+		this.total = 0;
+		this.taxRate = 8.25;
+	}
+	addItem(id, products) {
+		const product = products.find((item) => item.id === id);
+		const { name, price } = product;
+		this.items.push({ name, price });
+
+		const totalCountPerProduct = {};
+		this.items.forEach((dessert) => {
+			totalCountPerProduct[dessert.id] =
+				(totalCountPerProduct[dessert.id] || 0) + 1;
+		});
+		const currentProductCount = totalCountPerProduct[product.id];
+		const currentProductCountSpan = document.getElementById(
+			`product-count-for-id${product.id}`,
+		);
+		currentProductCount > 1
+			? (currentProductCountSpan.textContent = `${currentProductCount}x`)
+			: (productsContainer.innerHTML += /*HTML*/ `
+		<div class="product" id = "dessert${id}">
+			<p>
+				<span class="product-count" id = "product-count-for-id${id}">${name}</span>
+			</p>
+			<p>$${price}</p>
+		</div>
+		`);
+	}
+}
+
+const cart = new ShoppingCart();
