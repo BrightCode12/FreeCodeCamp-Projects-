@@ -1,0 +1,276 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
+:root {
+  --cream: #fff9f1;
+  --white: #ffffff;
+  --chocolate: #38251f;
+  --berry: #b84c65;
+  --berry-dark: #963b52;
+  --muted: #927f75;
+  --border: #f0e5da;
+  --shadow: 0 12px 35px rgba(56, 37, 31, 0.07);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--cream);
+  color: var(--chocolate);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* HEADER */
+
+header {
+  padding: 35px 7%;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 249, 241, 0.95);
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: -1.5px;
+  font-weight: 800;
+}
+
+.title::after {
+  content: '.';
+  color: var(--berry);
+}
+
+/* MAIN */
+
+main {
+  width: min(1200px, 88%);
+  margin: 50px auto;
+}
+
+/* CART BUTTON */
+
+.btn {
+  border: none;
+  border-radius: 50px;
+  background: var(--chocolate);
+  color: white;
+  padding: 13px 25px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn:hover {
+  background: var(--berry);
+  transform: translateY(-2px);
+}
+
+#cart-btn {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 35px;
+  box-shadow: var(--shadow);
+}
+
+/* CART CONTAINER */
+
+#cart-container {
+  display: none;
+  background: var(--white);
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  margin-bottom: 45px;
+  animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#clear-cart-btn {
+  background: #f8e9ed;
+  color: var(--berry);
+  margin-bottom: 25px;
+}
+
+#clear-cart-btn:hover {
+  background: var(--berry);
+  color: white;
+}
+
+/* CART PRODUCTS */
+
+#products-container {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+#products-container > * {
+  padding: 15px;
+  background: var(--cream);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+/* CART TOTALS */
+
+#cart-container p {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--muted);
+}
+
+#cart-container p:last-child {
+  border-bottom: none;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--chocolate);
+}
+
+/* DESSERT GRID */
+
+#dessert-card-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+/* DESSERT CARDS */
+
+#dessert-card-container > * {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+#dessert-card-container > *:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 40px rgba(56, 37, 31, 0.12);
+}
+
+/* PRODUCT IMAGES */
+
+#dessert-card-container img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* PRODUCT TEXT */
+
+#dessert-card-container h2,
+#dessert-card-container h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  padding: 15px 18px 5px;
+}
+
+#dessert-card-container p {
+  color: var(--muted);
+  font-size: 14px;
+  padding: 5px 18px;
+}
+
+/* PRODUCT BUTTONS */
+
+#dessert-card-container button {
+  margin: 15px 18px 20px;
+  width: calc(100% - 36px);
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: var(--berry);
+  color: white;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+#dessert-card-container button:hover {
+  background: var(--berry-dark);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  #dessert-card-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  header {
+    padding: 25px 6%;
+  }
+
+  main {
+    width: 90%;
+    margin: 30px auto;
+  }
+
+  #dessert-card-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  #dessert-card-container > * {
+    border-radius: 14px;
+  }
+
+  #dessert-card-container h2,
+  #dessert-card-container h3 {
+    font-size: 16px;
+    padding: 12px 10px 4px;
+  }
+
+  #dessert-card-container p {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  #dessert-card-container button {
+    width: calc(100% - 20px);
+    margin: 12px 10px;
+    padding: 11px 5px;
+    font-size: 12px;
+  }
+
+  #cart-container {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  #cart-btn {
+    margin-bottom: 25px;
+  }
+}
