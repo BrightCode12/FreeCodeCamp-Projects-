@@ -74,7 +74,7 @@ My project roadmap gives me a practical way to apply what I learn instead of onl
 - [x] **Markdown to HTML Converter** — completed.
 - [x] **Drum Machine** - completed.
 - [x] **Voting System** — completed.
-- [ ] **Bank Account Management Program** — not started.
+- [x] **Bank Account Management Program** — completed.
 - [ ] **Weather App** — not started.
 - [ ] **JavaScript Certification Exam** — not started.
 
