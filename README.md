@@ -6,16 +6,16 @@ I'm using **freeCodeCamp's JavaScript curriculum** to build a strong foundation 
 
 ![JavaScript](https://img.shields.io/badge/Focus-JavaScript-f7df1e?style=for-the-badge&logo=javascript&logoColor=black)
 ![freeCodeCamp](https://img.shields.io/badge/Learning-freeCodeCamp-0a0a23?style=for-the-badge&logo=freecodecamp&logoColor=white)
-![Overall Progress](https://img.shields.io/badge/Overall_Progress-70.9%25-blue?style=for-the-badge)
+![Overall Progress](https://img.shields.io/badge/Overall_Progress-71.0%25-blue?style=for-the-badge)
 
 ## 📊 Current Progress
 
 <!-- OVERALL_PROGRESS_START -->
-**Overall freeCodeCamp JavaScript progress:** 996 / 1,404 steps completed (70.9%).
+**Overall freeCodeCamp JavaScript progress:** 997 / 1,404 steps completed (71.0%).
 <!-- OVERALL_PROGRESS_END -->
 
 <!-- PROJECT_PROGRESS_START -->
-**Certification project progress:** 3 / 6 completed (50.0%).
+**Certification project progress:** 4 / 6 completed (66.7%).
 <!-- PROJECT_PROGRESS_END -->
 
 GitHub Actions updates both progress figures in this README whenever I push a change. The overall percentage combines the lesson-step counts in the topic tables with the completed certification-project checkboxes. When I complete more lessons, I update that topic’s `completed / total` count from freeCodeCamp; the percentage is then recalculated automatically. Project progress is counted from the checkboxes below.
