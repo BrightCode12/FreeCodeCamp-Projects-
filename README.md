@@ -58,8 +58,8 @@ These sections have helped me practise working with values, functions, arrays, c
 | Maps and Sets | 36 / 36 |
 | Local Storage and CRUD Operations | 78 / 78 |
 | Classes | 68 / 68 |
-| Recursion | 0 / 119 |
-| Data Structures | 0 / 31 |
+| Recursion | 119 / 119 |
+| Data Structures | 5 / 31 |
 | Algorithms | 0 / 49 |
 | Graphs and Trees | 0 / 50 |
 | Functional Programming | 0 / 24 |
