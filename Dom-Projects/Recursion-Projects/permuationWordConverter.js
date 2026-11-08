@@ -1,28 +1,27 @@
-const permute = (word) => {
-    const chars = word.toLowerCase().split(" ");
-    const used = new Array(chars.length).fill(false);
-    const results = [];
-    const current = [];
+const permute = (word, used = [], results = [], current = []) => {
 
-    const backTrack = () => {
-        if (current.length === chars.length) {
-            results.push(current.join(""));
-            return;
-        }
-        for (let i = 0; i < chars.length; i++) {
-            if (used[i]) continue;
+    if (used.length === 0) used = new Array(word.length).fill(false);
+        
 
-            used[i] = true;
-            current.push(chars[i]);
+	if (current.length === word.length) {
+		results.push(current.join(""));
+		return results;
+    }
+    const seen = new Set();
 
-            backTrack();
+	for (let i = 0; i < word.length; i++) {
+        if (used[i] || seen.has(word[i])) continue;
+        seen.add(word[i]);
 
-            current.pop();
-            used[i] = false;
-        }
-    };
-    backTrack();
-    return results;
+		used[i] = true;
+		current.push(word[i]);
+
+        permute(word, used, results, current);
+
+		current.pop();
+		used[i] = false;
+	}
+	return results;
 };
 
 console.log(permute("Monkey"));
