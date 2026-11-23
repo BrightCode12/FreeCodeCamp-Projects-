@@ -1,0 +1,425 @@
+
+/* ================================
+   1. ROOT & GLOBAL STYLES
+================================ */
+
+:root {
+    --bg: #080d19;
+    --surface: #111a2b;
+    --surface-hover: #19253a;
+    --border: #25334a;
+
+    --primary: #f5a623;
+    --primary-hover: #ffc04d;
+
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --green: #22c55e;
+
+    --radius: 14px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 0 7%;
+
+    font-family: Inter, "Segoe UI", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 15% 0%,
+            rgba(245, 166, 35, 0.08),
+            transparent 30%
+        ),
+        var(--bg);
+
+    color: var(--text);
+}
+
+/* ================================
+   2. HEADER & NAVIGATION
+================================ */
+
+header {
+    padding-top: 28px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border);
+}
+
+.fcc-logo {
+    width: 190px;
+    max-width: 55%;
+    filter: brightness(0) invert(1);
+    transition: opacity 0.25s ease;
+}
+
+.fcc-logo:hover {
+    opacity: 0.75;
+}
+
+/* ================================
+   3. PAGE TITLE
+================================ */
+
+.title {
+    margin: 55px 0 30px;
+
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+
+    background: linear-gradient(
+        120deg,
+        #ffffff,
+        #f5a623,
+        #fcd58b
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* ================================
+   4. TABLE CONTAINER
+================================ */
+
+main {
+    padding-bottom: 70px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25),
+        0 0 30px rgba(245, 166, 35, 0.025);
+}
+
+/* ================================
+   5. TABLE STRUCTURE
+================================ */
+
+table {
+    width: 100%;
+    min-width: 700px;
+
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background: #172338;
+}
+
+th {
+    padding: 22px 20px;
+
+    color: var(--muted);
+
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+}
+
+th:first-child {
+    padding-left: 28px;
+}
+
+td {
+    padding: 20px;
+
+    font-size: 0.92rem;
+    color: var(--text);
+
+    border-top: 1px solid var(--border);
+}
+
+td:first-child {
+    padding-left: 28px;
+}
+
+/* ================================
+   6. TABLE ROW INTERACTIONS
+================================ */
+
+tbody tr {
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+tbody tr:hover {
+    background: var(--surface-hover);
+}
+
+tbody tr:hover td:first-child {
+    color: var(--primary);
+}
+
+/* ================================
+   7. TOPIC LINKS
+================================ */
+
+td a {
+    color: var(--text);
+
+    font-size: 0.95rem;
+    font-weight: 650;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+td a:hover {
+    color: var(--primary);
+}
+
+/* ================================
+   8. USER AVATARS
+================================ */
+
+td img {
+    width: 32px;
+    height: 32px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+    border: 2px solid var(--border);
+
+    margin-right: -9px;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+td img:hover {
+    transform: translateY(-4px) scale(1.15);
+    border-color: var(--primary);
+    z-index: 2;
+}
+
+/* ================================
+   9. REPLIES & VIEWS
+================================ */
+
+td:nth-child(3),
+td:nth-child(4) {
+    color: var(--muted);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ================================
+   10. ACTIVITY INDICATOR
+================================ */
+
+td:last-child {
+    color: var(--green);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+/* ================================
+   11. SCROLLBAR
+================================ */
+
+.table-wrapper::-webkit-scrollbar {
+    height: 7px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #34445d;
+    border-radius: 20px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: var(--surface);
+}
+
+
+/* ==========================
+   TOPIC TITLE
+========================== */
+
+.post-title {
+    display: block;
+    margin-bottom: 9px;
+
+    color: #f1f5f9;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* ==========================
+   CATEGORY BADGES
+========================== */
+
+.category {
+    display: inline-block;
+    padding: 5px 9px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.category.career {
+    color: #c4b5fd;
+    background: #312e51;
+}
+
+.category.feedback {
+    color: #7dd3fc;
+    background: #12344a;
+}
+
+.category.support {
+    color: #86efac;
+    background: #153a2b;
+}
+
+.category.javascript {
+    color: #fcd34d;
+    background: #423719;
+}
+
+.category.html-css {
+    color: #fdba74;
+    background: #442b1c;
+}
+
+.category.python {
+    color: #93c5fd;
+    background: #1c3457;
+}
+
+.category.motivation {
+    color: #f9a8d4;
+    background: #47233d;
+}
+
+.category.backend {
+    color: #c4b5fd;
+    background: #342755;
+}
+
+.category.general {
+    color: #cbd5e1;
+    background: #334155;
+}
+
+/* ==========================
+   AVATAR GROUP
+========================== */
+
+.avatar-container {
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+}
+
+.avatar-container img {
+    width: 32px;
+    height: 32px;
+
+    object-fit: cover;
+
+    margin-left: -8px;
+
+    border: 2px solid #111a2b;
+    border-radius: 50%;
+}
+
+/* ==========================
+   TABLE ALIGNMENT
+========================== */
+
+#topics {
+    width: 55%;
+}
+
+#avatars,
+#replies,
+#views,
+#activity {
+    text-align: center;
+}
+
+td:nth-child(n+2) {
+    text-align: center;
+}
+
+/* ================================
+   12. RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 768px) {
+    body {
+        padding: 0 4%;
+    }
+
+    header {
+        padding-top: 20px;
+    }
+
+    .title {
+        margin: 38px 0 24px;
+        letter-spacing: -1px;
+    }
+
+    .table-wrapper {
+        border-radius: 10px;
+    }
+
+    th,
+    td {
+        padding: 16px 14px;
+    }
+
+    td:first-child,
+    th:first-child {
+        padding-left: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0 3%;
+    }
+
+    .fcc-logo {
+        width: 150px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+}
