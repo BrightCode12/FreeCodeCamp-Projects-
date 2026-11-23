@@ -61,9 +61,9 @@ These sections have helped me practise working with values, functions, arrays, c
 | Recursion | 119 / 119 |
 | Data Structures | 31 / 31 |
 | Algorithms | 47 / 49 |
-| Graphs and Trees | 0 / 50 |
-| Functional Programming | 0 / 24 |
-| Asynchronous JavaScript | 0 / 40 |
+| Graphs and Trees | 50 / 50 |
+| Functional Programming | 24 / 24 |
+| Asynchronous JavaScript | 40 / 40 |
 | JavaScript Review | Not started |
 | JavaScript Certification Exam | Not started |
 
