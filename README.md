@@ -75,7 +75,7 @@ My project roadmap gives me a practical way to apply what I learn instead of onl
 - [x] **Drum Machine** - completed.
 - [x] **Voting System** — completed.
 - [x] **Bank Account Management Program** — completed.
-- [ ] **Weather App** — not started.
+- [x] **Weather App** — not started.
 - [ ] **JavaScript Certification Exam** — not started.
 
 I'll update these checkboxes as I complete each project or exam.
