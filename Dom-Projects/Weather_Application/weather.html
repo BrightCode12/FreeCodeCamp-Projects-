@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Weather Application</title>
+
+		<link rel="stylesheet" href="weather.css" />
+	</head>
+
+	<body>
+		<main class="main-ctn">
+			<section class="display-ctn">
+				<div
+					id="weather-container"
+					style="display: none"
+					aria-live="polite"
+				>
+					<span id="location"></span>
+
+					<img id="weather-icon" src="" alt="Weather icon" />
+
+					<span id="weather-main"></span>
+
+					<span id="main-temperature"></span>
+
+					<span id="feels-like"></span>
+
+					<span id="humidity"></span>
+
+					<span id="wind"></span>
+
+					<span id="wind-gust"></span>
+				</div>
+			</section>
+
+			<section class="control-ctn">
+				<button id="get-weather-btn" type="button">Get Weather</button>
+
+				<select id="city" aria-label="Choose a city">
+					<option value="" selected disabled>Choose a City</option>
+
+					<option value="paris">Paris</option>
+					<option value="london">London</option>
+					<option value="tokyo">Tokyo</option>
+					<option value="los angeles">Los Angeles</option>
+					<option value="chicago">Chicago</option>
+					<option value="new york">New York</option>
+				</select>
+			</section>
+		</main>
+
+		<script src="weather.js"></script>
+	</body>
+</html>
